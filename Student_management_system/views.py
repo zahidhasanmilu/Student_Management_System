@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponseRedirect,get_object_or_404, redirect
+from django.shortcuts import render, HttpResponseRedirect,get_object_or_404, redirect, HttpResponse
 from django.urls import reverse, reverse_lazy
 
 # VIEW
@@ -15,6 +15,9 @@ from django.contrib.auth.forms import AuthenticationForm
 #models
 # from django.contrib.auth.models import User
 
+#EmailBackEnd
+from app.EmailBackEnd import EmailBackEnd
+
 #message
 from django.contrib import messages
 
@@ -28,4 +31,27 @@ def BASE(request):
 
 
 def LOGIN(request):
+    
     return render(request, 'login.html')
+
+def doLogin(request):
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+        user = EmailBackEnd.authenticate(request, username=email, password=password)
+        
+        if user:
+            login(request, user)
+            user_type = user.user_type
+            if user_type == '1':
+                return HttpResponse("This Is Head Of Department Panel")
+            elif user_type == '2':
+                return HttpResponse("This Is Staff Panel")
+            elif user_type == '3':
+                return HttpResponse("This Is Student Panel")
+            else:
+                messages.error(request, 'Email and password are invalid !')
+                return redirect('login')
+        else:
+            messages.error(request, 'Email and password are invalid !')
+            return redirect('login')
