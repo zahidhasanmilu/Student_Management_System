@@ -1,10 +1,10 @@
 # Student_Management_System
-Student_Management_System
 
 ## Development Setup
 
 1. Create a repository using this template or clone the repository
-    ```    git clone https://github.com/zahidhasanmilu/Student_Management_System.git
+    ```    
+    git clone https://github.com/zahidhasanmilu/Student_Management_System.git
     ```
 
 2. Create a virtual environment
