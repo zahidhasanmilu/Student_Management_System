@@ -18,8 +18,11 @@ urlpatterns = [
     path('', views.LOGIN.as_view(), name='login'),
     path('doLogin/', views.doLogin.as_view(), name='doLogin'),
     path('doLogout/', views.doLogout, name='logout'),
+    
+    #Profile Update
+    path('profile/', views.PROFILE.as_view(), name='profile'),
 
     path('Hod/Home/', Hod_views.HOME.as_view(), name='hod_home'),
 
 
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -30,6 +30,7 @@ INSTALLED_APPS = [
 
 CUSTOM_APPS = [
     'app',
+     'django_cleanup.apps.CleanupConfig',
 ]
 
 INSTALLED_APPS += CUSTOM_APPS
