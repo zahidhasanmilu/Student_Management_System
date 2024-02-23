@@ -5,7 +5,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-    <title>Preskool - Inbox</title>
+    <title>
+    {% block title %}
+        Preskool
+    {% endblock title %}
+        </title>
 
     <link rel="shortcut icon" href="{% static 'assets/img/favicon.png' %}">
     <link rel="stylesheet"
@@ -31,6 +35,10 @@
         <div class="page-wrapper">
 
 
+{% block content %}
+    
+{% endblock content %}
+    
             <!-- include footer  -->
             {% include 'components/footer.html' %}
 

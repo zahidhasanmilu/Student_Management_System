@@ -7,15 +7,19 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 
-#views
+# views
 from .import views, Hod_views, Staff_views, Student_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.BASE, name='home'),
-    
-    
-    path('login/', views.LOGIN, name='login'),
-    path('doLogin/', views.doLogin, name='doLogin'),
-    
-]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    path('base/', views.BASE.as_view(), name='home'),
+
+
+    path('', views.LOGIN.as_view(), name='login'),
+    path('doLogin/', views.doLogin.as_view(), name='doLogin'),
+    path('doLogout/', views.doLogout, name='logout'),
+
+    path('Hod/Home/', Hod_views.HOME.as_view(), name='hod_home'),
+
+
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
