@@ -34,3 +34,17 @@ from django.db.models import Q
 @method_decorator(never_cache, name='dispatch')
 class HOME(LoginRequiredMixin, TemplateView):
     template_name = 'Hod/home.html'
+
+
+# @method_decorator(never_cache, name='dispatch')
+# class ADD_STUDENT(LoginRequiredMixin,CreateView):
+#     model = None
+#     template_name = 'Hod/add_student.html'
+
+
+class ADD_STUDENT(LoginRequiredMixin,View):
+    def get(self, request, *args, **kwargs):
+        return render(request, 'Hod/add_student.html')
+
+    def post(self, request, *args, **kwargs):
+        return HttpResponse('POST request!')

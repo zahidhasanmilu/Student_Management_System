@@ -22,7 +22,10 @@ urlpatterns = [
     #Profile Update
     path('profile/', views.PROFILE.as_view(), name='profile'),
 
+
+#Hod Panel
     path('Hod/Home/', Hod_views.HOME.as_view(), name='hod_home'),
+    path('Hod/Student/Add/', Hod_views.ADD_STUDENT.as_view(), name='add_student'),
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

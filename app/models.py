@@ -12,5 +12,6 @@ class CustomUser(AbstractUser):
     )
 
     user_type = models.CharField(choices=USER_TYPE, max_length=50, default=1)
+    email = models.EmailField(unique=True,)
     profile_pic = models.ImageField(
-        upload_to='Profile_Pics/')
+        upload_to='Profile_Pics/', default='demo_profilepic.jpg')
